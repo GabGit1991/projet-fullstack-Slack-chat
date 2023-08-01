@@ -1,4 +1,4 @@
-package service;
+package com.projetfullstackslackchat.projetfullstackslackchat.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.User;
-import repository.UserRepository;
+import com.projetfullstackslackchat.projetfullstackslackchat.entity.User;
+import com.projetfullstackslackchat.projetfullstackslackchat.repository.UserRepository;
 
 @Service
 public class UserService {
@@ -21,7 +21,7 @@ public class UserService {
 	 * @param user
 	 * @return we save the User in the database
 	 */
-	public Boolean createUser(User user) {
+	public Boolean addUser(User user) {
 		// check that the User in paramater is correctly implemented
 		if (user.getName() != null) {
 			userRepository.save(user);
@@ -37,7 +37,7 @@ public class UserService {
 	 * 
 	 * @return the list of all User entities of the detabase
 	 */
-	public List<User> findAllUsers() {
+	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
@@ -48,7 +48,7 @@ public class UserService {
 	 * @return an Optional Entity containing a User in function of their id if it
 	 *         exists.
 	 */
-	public Optional<User> findUserById(Integer id) {
+	public Optional<User> getUserById(Integer id) {
 		return userRepository.findById(id);
 	}
 
