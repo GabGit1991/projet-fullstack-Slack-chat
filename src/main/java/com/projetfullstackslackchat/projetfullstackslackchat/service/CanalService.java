@@ -25,7 +25,7 @@ public class CanalService {
         return canalRepository.findById(id);
     }
 
-    public Boolean delete(Integer id) {
+    public Boolean deleteCanalById(Integer id) {
         Optional<Canal> foundCanal = canalRepository.findById(id);
         if (foundCanal.isPresent()) {
             canalRepository.deleteById(id);
