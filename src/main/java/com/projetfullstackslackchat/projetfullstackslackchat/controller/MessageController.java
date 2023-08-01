@@ -46,12 +46,12 @@ public class MessageController {
 		}
 	}
 
-	@DeleteMapping("messages/{id}")
+	@DeleteMapping("{id}")
 	public void deleteMessageById(@PathVariable("id") Integer id) {
 		messageService.deleteMessage(id);
 	}
 
-	@PutMapping("messages/{id}")
+	@PutMapping("{id}")
 	public ResponseEntity putMessage(@PathVariable("id") Integer id, @RequestBody Message message) {
 
 		if (!id.equals(message.getId())) {
