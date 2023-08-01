@@ -1,4 +1,4 @@
-package service;
+package com.projetfullstackslackchat.projetfullstackslackchat.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.Canal;
-import repository.CanalRepository;
+import com.projetfullstackslackchat.projetfullstackslackchat.entity.Canal;
+import com.projetfullstackslackchat.projetfullstackslackchat.repository.CanalRepository;
+
 
 @Service
 public class CanalService {
