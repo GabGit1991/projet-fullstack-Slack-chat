@@ -1,4 +1,4 @@
-package entity;
+package com.projetfullstackslackchat;
 
 import jakarta.persistence.Entity;
 

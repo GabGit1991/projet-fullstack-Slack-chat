@@ -1,4 +1,4 @@
-package entity;
+package com.projetfullstackslackchat;
 
 import java.time.LocalDateTime;
 

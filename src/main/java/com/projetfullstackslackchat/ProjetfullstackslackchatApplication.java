@@ -1,4 +1,4 @@
-package com.projetfullstackslackchat.projetfullstackslackchat;
+package com.projetfullstackslackchat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
