@@ -18,7 +18,7 @@ import com.projetfullstackslackchat.projetfullstackslackchat.entity.User;
 import com.projetfullstackslackchat.projetfullstackslackchat.service.UserService;
 
 @RestController
-@RequestMapping(path = "users")
+@RequestMapping("users")
 public class UserController {
 
 	@Autowired
