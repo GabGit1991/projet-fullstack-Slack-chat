@@ -65,8 +65,8 @@ public class Message {
 		return date;
 	}
 
-//	public void setDate(LocalTime date) {
-//		this.date = LocalTime.now();
-//	}
+	public void setDate(Date date) {
+		this.date = Date.from(Instant.now());
+	}
 
 }

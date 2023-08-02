@@ -1,5 +1,7 @@
 package com.projetfullstackslackchat.projetfullstackslackchat.controller;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +28,7 @@ public class MessageController {
 
 	@PostMapping
 	public void postMessage(@RequestBody Message newMessage) {
+		newMessage.setDate(Date.from(Instant.now()));
 		messageService.addMessage(newMessage);
 	}
 

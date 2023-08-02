@@ -3,6 +3,7 @@ package com.projetfullstackslackchat.projetfullstackslackchat.entity;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,10 +20,10 @@ public class Canal {
 
 	private String canalName;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<User> assignedUsers;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Message> assignedMessages;
 
 	public Canal() {

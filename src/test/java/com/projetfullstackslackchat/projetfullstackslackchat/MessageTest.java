@@ -22,7 +22,7 @@ public class MessageTest {
 		// ARRANGE >> creation of a new User
 		User newUser = new User("Bobby", "jean85", "jeannot@example.com", "jeannotpassword");
 		newUser.setId(6);
-		Message message = new Message(newUser, "Alors ça !");
+		Message message = new Message(newUser, "Alors peut être ? ");
 		// ACT
 		messageService.addMessage(message);
 		// ASSERT
