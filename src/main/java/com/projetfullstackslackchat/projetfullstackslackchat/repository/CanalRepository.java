@@ -5,15 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.projetfullstackslackchat.projetfullstackslackchat.entity.Canal;
 
-<<<<<<< HEAD
-
-@Repository
-public interface CanalRepository extends JpaRepository<Canal,Integer>{
-    
-}
-=======
 @Repository
 public interface CanalRepository extends JpaRepository<Canal, Integer> {
 
 }
->>>>>>> antoine

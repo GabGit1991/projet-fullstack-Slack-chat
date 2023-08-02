@@ -13,8 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "messages1")
 public class Message {
-<<<<<<< HEAD
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -71,4 +70,4 @@ public class Message {
 	}
 
 }
->>>>>>> antoine
+
