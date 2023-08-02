@@ -23,13 +23,13 @@ public class Canal {
 
     private String canalName;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     @JoinColumn(name = "canal_id")
     private List<User> assignedUsers;
 
   
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     @JoinColumn(name = "canal_id")
     private List<Message> assignedMessages;
 
