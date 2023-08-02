@@ -52,7 +52,7 @@ public class MessageController {
 	@DeleteMapping("{id}")
 	public ResponseEntity deleteMessageById(@PathVariable("id") Integer id) {
 		if (messageService.deleteMessageById(id)) {
-			return ResponseEntity.ok().body("Utilisateur supprimé !");
+			return ResponseEntity.ok().body("Message supprimé !");
 		} else {
 			return ResponseEntity.notFound().build();
 		}
