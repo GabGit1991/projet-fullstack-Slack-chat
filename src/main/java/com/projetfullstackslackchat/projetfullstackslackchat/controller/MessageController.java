@@ -1,5 +1,7 @@
 package com.projetfullstackslackchat.projetfullstackslackchat.controller;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,17 +28,18 @@ public class MessageController {
 
 	@PostMapping
 	public void postMessage(@RequestBody Message newMessage) {
+		newMessage.setDate(Date.from(Instant.now()));
 		messageService.addMessage(newMessage);
 	}
 
 	@GetMapping
 	public List<Message> getAllMessage() {
-		return messageService.getMessages();
+		return messageService.getAllMessages();
 	}
 
 	@GetMapping("{id}")
 	public ResponseEntity<Message> getMessageByID(@PathVariable("id") Integer id) {
-		Optional<Message> optional = messageService.getMessage(id);
+		Optional<Message> optional = messageService.getMessageById(id);
 
 		if (optional.isPresent()) {
 			Message messageFound = optional.get();
@@ -47,8 +50,12 @@ public class MessageController {
 	}
 
 	@DeleteMapping("{id}")
-	public void deleteMessageById(@PathVariable("id") Integer id) {
-		messageService.deleteMessage(id);
+	public ResponseEntity deleteMessageById(@PathVariable("id") Integer id) {
+		if (messageService.deleteMessageById(id)) {
+			return ResponseEntity.ok().body("Message supprimé !");
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	@PutMapping("{id}")
@@ -58,11 +65,11 @@ public class MessageController {
 			return ResponseEntity.badRequest().build();
 		}
 
-		if (messageService.getMessage(id).isEmpty()) {
+		if (messageService.getMessageById(id).isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 
-		messageService.updateMessage(id, message);
+		messageService.updateMessageById(id, message);
 		return ResponseEntity.ok().build();
 	}
 

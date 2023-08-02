@@ -1,6 +1,7 @@
 package com.projetfullstackslackchat.projetfullstackslackchat.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "messages")
+@Table(name = "messages1")
 public class Message {
 <<<<<<< HEAD
 	
@@ -19,37 +20,22 @@ public class Message {
 	private Integer id;
 	
 	@ManyToOne
-	private User user; 
-	
-	private String content; 
-	
-	private LocalDateTime date;
-	
-	
-=======
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-
-	@ManyToOne
 	private User user;
 
 	private String content;
 
-	private LocalDateTime date;
->>>>>>> antoine
+	private Date date;
 
 	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Message(User user, String content, LocalDateTime date) {
+	public Message(User user, String content) {
 		super();
 		this.user = user;
 		this.content = content;
-		this.date = date;
+		this.date = Date.from(Instant.now());
 	}
 
 	public Integer getId() {
@@ -76,20 +62,12 @@ public class Message {
 		this.content = content;
 	}
 
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
-		this.date = date;
-<<<<<<< HEAD
-	} 
-	
-	
-	
-
-}
-=======
+	public void setDate(Date date) {
+		this.date = Date.from(Instant.now());
 	}
 
 }
