@@ -43,6 +43,9 @@ public class User {
 
 	// GETTERS & SETTERS
 
+	public User(String name, String username) {
+	}
+
 	public Integer getId() {
 		return id;
 	}
