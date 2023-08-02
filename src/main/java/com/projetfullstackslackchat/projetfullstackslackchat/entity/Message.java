@@ -2,33 +2,34 @@ package com.projetfullstackslackchat.projetfullstackslackchat.entity;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "messages")
 public class Message {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@ManyToOne
-	private User user; 
-	
-	private String content; 
-	
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
+
+	private String content;
+
 	private LocalDateTime date;
-	
-	
 
 	public Message() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Message(User user, String content, LocalDateTime date) {
@@ -68,9 +69,6 @@ public class Message {
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
-	} 
-	
-	
-	
+	}
 
 }
