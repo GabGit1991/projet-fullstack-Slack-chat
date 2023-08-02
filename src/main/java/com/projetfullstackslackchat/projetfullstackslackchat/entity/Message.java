@@ -12,6 +12,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "messages")
 public class Message {
+<<<<<<< HEAD
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,19 @@ public class Message {
 	private LocalDateTime date;
 	
 	
+=======
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	private User user;
+
+	private String content;
+
+	private LocalDateTime date;
+>>>>>>> antoine
 
 	public Message() {
 		super();
@@ -68,9 +82,15 @@ public class Message {
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+<<<<<<< HEAD
 	} 
 	
 	
 	
 
 }
+=======
+	}
+
+}
+>>>>>>> antoine
