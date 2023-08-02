@@ -65,6 +65,8 @@ public class JWTAuthenticationFilter {
                 String jwt = JWT.create().withSubject(springUser.getUsername())
                 .withArrayClaim("roles", roles.toArray(new String[roles.size()]))
                 .withExpiresAt(new Date(System.currentTimeMillis()+10*24*60*60*100)).sign(Algorithm.HMAC256("secret"));
+
+                response.addHeader("Authorization", jwt);
     }
 
 }
