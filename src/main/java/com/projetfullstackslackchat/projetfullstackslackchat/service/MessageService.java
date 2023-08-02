@@ -13,26 +13,52 @@ import com.projetfullstackslackchat.projetfullstackslackchat.repository.MessageR
 public class MessageService {
 
 	@Autowired
-	MessageRepository repo;
+	MessageRepository messageRepository;
 
-	public void addMessage(Message message) {
-		repo.save(message);
+	public Message addMessage(Message message) {
+		messageRepository.save(message);
+		return message;
 	}
 
-	public List<Message> getMessages() {
-		return repo.findAll();
+	public List<Message> getAllMessages() {
+		return messageRepository.findAll();
 	}
 
-	public Optional<Message> getMessage(Integer id) {
-		return repo.findById(id);
+	public Optional<Message> getMessageById(Integer id) {
+		return messageRepository.findById(id);
 	}
 
-	public void updateMessage(Integer id, Message message) {
-		repo.save(message);
+	public Boolean updateMessageById(Integer id, Message message) {
+		Optional<Message> messageToUpdate = messageRepository.findById(id);
+		// si le canal a modifier est présent
+		if (messageToUpdate.isPresent()) {
+			// si le canal a modifier est identique au canal fournis, alors on modife rien
+			if (messageToUpdate.get().equals(message)) {
+				return false;
+			}
+
+			Message messageToSave = messageToUpdate.get();
+
+			if (messageToUpdate.get().getContent() != message.getContent()) {
+				messageToSave.setContent(message.getContent());
+			}
+
+			if (messageToUpdate.get().getUser() != message.getUser()) {
+				messageToSave.setUser(message.getUser());
+			}
+
+			messageRepository.save(messageToSave);
+			return true;
+		}
+		return false;
 	}
 
-	public void deleteMessage(int id) {
-		repo.deleteById(id);
+	public Boolean deleteMessageById(int id) {
+		Optional<Message> foundMessage = messageRepository.findById(id);
+		if (foundMessage.isPresent()) {
+			messageRepository.deleteById(id);
+			return true;
+		}
+		return false;
 	}
-
 }
